@@ -42,6 +42,10 @@
 
 
 
+              <option value="gojo banguela.jpeg" {% if selected_image == 'gojo banguela.jpeg' %}selected{% endif %}>Gojo Banguela</option>
+              <option value="coruja.jpeg" {% if selected_image == 'coruja.jpeg' %}selected{% endif %}>Coruja</option>
+              <option value="will smith.jpeg" {% if selected_image == 'will smith.jpeg' %}selected{% endif %}>Will Smith</option>
+
 
 
 
@@ -63,6 +67,10 @@
               <option value="black" {% if selected_color == 'black' %}selected{% endif %}>Preto</option>
               <!-- TAREFA ADICIONAR ADICIONE MAIS OPÇÕES DE CORES PARA O TEXTO DO MEME -->
 
+              
+              <option value="red" {% if selected_color == 'red' %}selected{% endif %}>Vermelho</option>
+              <option value="blue" {% if selected_color == 'blue' %}selected{% endif %}>Azul</option>
+              <option value="green" {% if selected_color == 'green' %}selected{% endif %}>Verde</option>
 
 
 
@@ -77,7 +85,7 @@
               <input
                 class="input_text"
                 id="textTop_y"
-                type="percent"
+                type="Number"
                 name="textTop_y"
                 placeholder="Ex.: 20"
               >
@@ -89,7 +97,7 @@
             <input
             class="input_text"
             id="textBottom_y"
-            type="percent"
+            type="Number"
             name="textBottom_y"
             placeholder="Ex.: 20"
             >
@@ -102,18 +110,18 @@
     <div class="meme-block" id="memeBlock">
 
     <!-- Tarefa #3. Insira as variáveis corretas nas {{chaves}} que estão vazias  style="color: {{preencha}};top: {{preencha}}%;" -->
-     <p class="text_top">
+     <p class="text_top" style="color: {{selected_color}};top: {{textTop_y}}%;">
 
-     {{ textTop }}
+      {{ textTop }}
      
       </p>
 
       <img class="meme" src="{{ url_for('serve_images', path=selected_image) }}" alt="{{ selected_image }}">
 
     <!-- Tarefa #3. Insira as variáveis corretas nas {{chaves}} que estão vazias  style="color: {{preencha}};bottom: {{preencha}}%;" -->
-      <p class="text_bottom">
+      <p class="text_bottom" style="color: {{selected_color}};bottom: {{textBottom_y}}%;">
 
-       {{ textBottom }}
+      {{ textBottom }}
 
       </p>
       
